@@ -1,5 +1,12 @@
 #!/usr/bin/env python
-"""What comes next and when does the pattern stop."""
+"""What comes next and when does the pattern stop.
+
+1 x 1 + 8 = 9
+12 x 2 + 8 = 98
+123 x 3 + 8 = 987
+1234 x 4 + 8 = 9876
+12345 x 5 + 8 = ?????
+"""
 
 def when_does_the_pattern_stop(start=1, stop=100, step=1, factor=8):
   """What comes next and when does the pattern stop."""
