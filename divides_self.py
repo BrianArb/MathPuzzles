@@ -15,12 +15,15 @@ def divides_self(num):
     boolean True is the number is divisable by all of it's digits
     and False if not.
   """
+  digits = '123456789'
   as_str = str(num)
 
   if '0' in as_str:
     return False
 
-  return all([num % int(x) == 0 for x in as_str])
+  return all([num % int(x) == 0
+              for x in as_str
+              if x in digits])
 
 
 def tests():
@@ -28,6 +31,7 @@ def tests():
   assert divides_self(128)
   assert not(divides_self(108))
   assert not(divides_self(53))
+  print divides_self(-128)
   print 'All tests pass'
 
 
