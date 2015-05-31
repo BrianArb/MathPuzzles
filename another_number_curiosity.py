@@ -29,7 +29,7 @@ def when_does_the_pattern_stop(start=1, stop=100, step=1, factor=8):
 def main():
   """Hooray for main!"""
   for num1, num2, factor, num3 in when_does_the_pattern_stop():
-    print '{} x {} + {} = {}'.format(num1, num2, factor, num3 )
+    print '{0} x {1} + {2} = {3}'.format(num1, num2, factor, num3 )
 
 
 if __name__ == '__main__':
