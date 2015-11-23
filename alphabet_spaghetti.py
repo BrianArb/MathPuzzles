@@ -43,6 +43,7 @@ def indexes_of_character(character):
   return [i for i in range(len(characters))
           if characters[i] == character][:4]
 
+
 def main():
   minimum = len(characters)
   index = None
@@ -51,7 +52,7 @@ def main():
     indexes = indexes_of_character(c)
     if sum(indexes) < minimum:
       minimum = sum(indexes)
-      index = indexes[3]
+      index = indexes[-1]
 
   print sentence
   print 'The Answer is: ' + characters[index + 5 - 8]
