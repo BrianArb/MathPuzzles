@@ -40,6 +40,13 @@ def calculate_angle(hour, minute):
 
 
 def split_hour_minute(arg):
+  """Split a string into hour minute.
+
+  Args:
+    arg:  str, HH:MM string.
+  Returns:
+    HourMinute named tuple or False
+  """
   time_value = [int(n) for n in arg.split(':') if n.isdigit()]
   if len(time_value) == 2:
     return HourMinute(hour=time_value[0], minute=time_value[1])
@@ -66,6 +73,11 @@ def tests():
 
 
 def main(arg):
+  """Print angle between the hour and minute hand in degrees.
+
+  Args:
+    arg: str, HH:MM from stdin.
+  """
   time_value = split_hour_minute(arg)
   angle = calculate_angle(time_value.hour, time_value.minute)
   print (
@@ -75,5 +87,5 @@ def main(arg):
 
 if __name__ == '__main__':
   tests()
-  if len(sys.argv[1:]) >= 1:
+  if sys.argv[1:]:
     main(' '.join(sys.argv[1:]))
