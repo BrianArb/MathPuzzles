@@ -115,7 +115,7 @@ def check_puzzle(grid):
   return True
 
 
-def fill_in_the_blanks(row):
+def fill_in_the_blanks(row, columns):
   """Fill in the missing pieces row by row.
 
   Args:
@@ -144,22 +144,21 @@ def solve_puzzle(puzzle):
   Returns:
     The solved puzzle as a list of lists or Flase if it is a invalid puzzle.
   """
-  global columns
   result = check_puzzle(puzzle)
   if not result:
     return result
 
   columns = group_by_columns([digit for row in puzzle for digit in row])
   return next([A, B, C, D, E]
-              for A in fill_in_the_blanks(puzzle[0])
+              for A in fill_in_the_blanks(puzzle[0], columns)
               if check_puzzle([A] + puzzle[1:])
-              for B in fill_in_the_blanks(puzzle[1])
+              for B in fill_in_the_blanks(puzzle[1], columns)
               if check_puzzle([A, B] + puzzle[2:])
-              for C in fill_in_the_blanks(puzzle[2])
+              for C in fill_in_the_blanks(puzzle[2], columns)
               if check_puzzle([A, B, C] + puzzle[3:])
-              for D in fill_in_the_blanks(puzzle[3])
+              for D in fill_in_the_blanks(puzzle[3], columns)
               if check_puzzle([A, B, C, D] + puzzle[4:])
-              for E in fill_in_the_blanks(puzzle[4])
+              for E in fill_in_the_blanks(puzzle[4], columns)
               if check_puzzle([A, B, C, D, E] + puzzle[5:])
               )
 
@@ -177,6 +176,7 @@ def parse_raw_puzzle(raw):
 
 
 def main(arg):
+  """Lets hear it for main."""
   puzzle = parse_raw_puzzle(arg)
   t1 = time.time()
   result = solve_puzzle(puzzle)
@@ -190,6 +190,7 @@ def main(arg):
 
 
 def tests():
+  """Some simple testing."""
   raw = 'BRAVE EBR   V B BR    EB '
   puzzle = parse_raw_puzzle(raw)
   assert puzzle == [[1, 2, 3, 4, 5], [0, 5, 1, 2, 0], [0, 0, 4, 0, 1],
