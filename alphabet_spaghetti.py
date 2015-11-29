@@ -14,11 +14,12 @@ referance: http://www.mathsisfun.com/puzzles/alphabet-spaghetti.html
 
 import string
 
-sentence = ('What letter of the alphabet is the one which comes eight letters \n'
-            'before the letter which comes five letters after the fourth \n'
-            'appearance of the first letter to occur four times in this \n'
-            'sentence?\n')
+sentence = ('What letter of the alphabet is the one which comes eight letters '
+            'before the letter which comes five letters after the fourth '
+            'appearance of the first letter to occur four times in this '
+            'sentence?')
 characters = ''.join(c for c in sentence.lower() if c in string.ascii_lowercase)
+
 
 def occur_atleast_four_times(characters):
   """Find the letters that appear four or more times.
@@ -31,6 +32,7 @@ def occur_atleast_four_times(characters):
   for c in set(characters):
     if characters.count(c) >= 4:
       yield c
+
 
 def indexes_of_character(character):
   """Find the indexes in the string for a given character.
@@ -45,6 +47,7 @@ def indexes_of_character(character):
 
 
 def main():
+  """Find the answer."""
   minimum = len(characters)
   index = None
 
