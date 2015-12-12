@@ -40,6 +40,7 @@ def add_to_skyline(as_list, xleft, height, xright):
   for index in range(xleft-1, xright-1):
     if as_list[index] < height:
       as_list[index] = height
+
   return as_list
 
 
@@ -72,6 +73,7 @@ def compress_list(as_list):
 
 
 def tests():
+  """Do some simple tests."""
   my_input = [(1,11,5),(2,6,7),(3,13,9),(12,7,16),(14,3,25),(19,18,22),
               (23,13,29),(24,4,28)]
   assert find_max_by_key(my_input) == (23,13,29)
