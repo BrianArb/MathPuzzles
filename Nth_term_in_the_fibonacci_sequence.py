@@ -26,13 +26,14 @@ def binet(n):
 
 
 def tests():
+
   fibonacci_numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34]
 
-  for n in range(len(fibonacci_numbers)):
-    assert term_in_fibonacci(n+1) == fibonacci_numbers[n]
+  for n, fibonacci_number in enumerate(fibonacci_numbers):
+    assert term_in_fibonacci(n+1) == fibonacci_number
 
-  for n in range(len(fibonacci_numbers)):
-    assert binet(n+1) == fibonacci_numbers[n]
+  for n, fibonacci_number in enumerate(fibonacci_numbers):
+    assert binet(n+1) == fibonacci_number
 
 
 if __name__ == '__main__':
