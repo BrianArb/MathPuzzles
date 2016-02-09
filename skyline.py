@@ -82,6 +82,7 @@ def tests():
                      (23,13),(29,0)]
   as_list = make_skyline(my_input)
   assert expected_output == compress_list(as_list)
+  print compress_list(as_list)
 
 
 if __name__ == '__main__':
